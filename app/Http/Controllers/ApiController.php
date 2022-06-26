@@ -22,7 +22,7 @@ class ApiController extends Controller
         Log::info("request:$request");
         // logger('test', ['foo' => 'bar']);
         // データベースに保存
-        DB::transaction(function () {
+        DB::transaction(function ($request) {
             $student = new Student;
             $student->name   = $request->name;
             $student->course = $request->course;
