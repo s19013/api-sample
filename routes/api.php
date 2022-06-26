@@ -20,9 +20,9 @@ use App\Http\Controllers\ApiController;
 // });
 
 Route::prefix('students')->group(function(){
-    Route::get('', 'ApiController@getAllStudents');
-    Route::get('/{id}', 'ApiController@getStudent');
-    Route::post('', 'ApiController@createStudent');
-    Route::put('/{id}', 'ApiController@updateStudent');
-    Route::delete('/{id}', 'ApiController@deleteStudent');
+    Route::get('', [ApiController::class,'getAllStudents'])->name('getAll');
+    Route::get('/{id}',[ApiController::class,'getStudent'])->name('get');
+    Route::post('', [ApiController::class,'createStudent'])->name('create');
+    Route::put('/{id}', [ApiController::class,'updateStudent'])->name('update');
+    Route::delete('/{id}', [ApiController::class,'deleteStudent'])->name('delete');
 });
